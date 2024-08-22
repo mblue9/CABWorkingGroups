@@ -1,142 +1,110 @@
-name: Request to add your event to Bioconductor event calendar
-description: File a event calendar request
+name: Request to add your event to the Bioconductor event calendar
+description: File an event calendar request
 title: "[Event]: REPLACE ME WITH YOUR EVENT NAME"
 labels: [event, calendar]
 assignees:
   - kozo2
+
 body:
   - type: markdown
     attributes:
       value: |
-        Submit this form and your event will be listed on the bioconductor.org calendar.
-        Please review the following minimum requirements before submitting this form:
+        Submit this form to list your event on the Bioconductor event calendar.
+        Please review the following guidelines before submitting:
+
+          1. Events must have a Bioconductor focus to be included in the Bioconductor Core Events Calendar.
+          2. Events with relevance to the Bioconductor community but without a direct focus on Bioconductor tools will be listed in the Bioconductor-Adjacent Events Calendar.
+          3. The event organizer should confirm they have read the [Bioconductor Code of Conduct](http://bioconductor.org/about/code-of-conduct/).
         
-          1. Having a Bioconductor focus or be of interest to Bioconductor users/developers.
-          2. The event organizer should (read and) confirm the [Bioconductor Code of Conduct](http://bioconductor.org/about/code-of-conduct/).
-          3. The event organizer should specify a Code of Conduct (CoC) derived from the partner organization or the [Bioconductor Code of Conduct](http://bioconductor.org/about/code-of-conduct/).
-          4. The event organizer should summarise the CoC. (The event participants might not have time to read the CoC in a busy class, so it is good to take some time out.)
-        
-        Thanks for taking the time to fill out this form!
+        Thank you for your submission!
+
+  - type: dropdown
+    id: event-category
+    attributes:
+      label: Event Category
+      description: Select the category that best describes your event.
+      options:
+        - Bioconductor Core Event (direct focus on Bioconductor tools/packages)
+        - Bioconductor-Adjacent Event (relevant to the community but not directly focused on Bioconductor)
+    validations:
+      required: true
+
   - type: textarea
     id: event-type
     attributes:
       label: Type
-      description: Write a type of your event.
+      description: Specify the type of your event (e.g., workshop, hack-a-thon, meetup, lecture, etc.)
       placeholder: Tell us your event type!
-      value: "workshop, hack-a-thon, meetup, lecture, etc"
     validations:
       required: true
+
   - type: textarea
     id: event-description
     attributes:
       label: Description
-      description: Write a brief description of your event.
+      description: Provide a brief description of your event.
       placeholder: Tell us your event description!
-      value: "It involves ..."
     validations:
       required: true
+
   - type: textarea
-    id: whereis
+    id: bioconductor-relevance
+    attributes:
+      label: How does this event relate to Bioconductor?
+      description: |
+        Clearly describe how this event is related to Bioconductor, especially if you're submitting it as a Bioconductor Core Event. 
+        For Bioconductor-Adjacent Events, explain the relevance to the community.
+      placeholder: Describe the relevance of your event to Bioconductor.
+    validations:
+      required: true
+
+  - type: textarea
+    id: event-location
     attributes:
       label: Where is your event located?
-      description: Also tell us your event location and time-zone + if it is virtual or not.
+      description: Provide the location and time zone of your event, and specify if it is virtual.
       placeholder: Tell us your event location and time-zone + if it is virtual or not.
     validations:
       required: true
+
   - type: textarea
     id: event-website
     attributes:
       label: Website
-      description: Write a website of your event.
-      placeholder: Tell us your event website!
-      value: "https://eventwebsite.com"
-    validations:
-      required: true
-  - type: dropdown
-    id: repeatingORoneoff
-    attributes:
-      label: Repeating or one-off events?
-      description: Select either
-      options:
-        - Repeating
-        - One-off
-      default: 0
+      description: Provide the website for your event.
+      placeholder: https://eventwebsite.com
     validations:
       required: true
 
   - type: dropdown
-    id: gcalrepeatingdate1
+    id: repeating-or-oneoff
     attributes:
-      label: If you selected "Repeating", select below. If you selected "One-off", skip this.
-      description: How does your event repeat?
+      label: Repeating or one-off events?
+      description: Select whether the event is repeating or a one-off occurrence.
       options:
-        - Repeat every ___ , Repeat on ___ , Ends on ___ / Ends after ___ occurrences
-        - Monthly on ___th
-        - Weekly on ___day
-      default: 0
+        - Repeating
+        - One-off
     validations:
-      required: false
+      required: true
+
   - type: textarea
-    id: gcalrepeatingdate2
-    attributes:
-      label: If you selected "Repeating", select below also. If you selected "One-off", skip this.
-      description: Add the information where it says ___ in the previous option.
-      placeholder: For example, Repeat every Month, Repeat on the third Friday, Ends after 3 occurrences
-    validations:
-      required: false
-  - type: textarea
-    id: gcalrepetingtime
-    attributes:
-      label: If you selected "Repeating", specify the time at which the repeats occur. If you selected "One-off", skip this.
-      description: Specify the time.
-      placeholder: 5:00PM-6:00PM
-    validations:
-      required: false
-  - type: textarea
-    id: othertype
-    attributes:
-      label: If you selected "One-off" or your event repeats in a manner other than the Google Calendar support types above,
-      description: Specify a date and time or a list of dates and times.
-      placeholder: Apr 4, May 5 5:00PM-6:00PM, Jun 6 6PM-6PM, Jul 7 7PM-7PM, Aug 8 8PM-8
-    validations:
-      required: false
-  - type: input
     id: contact
     attributes:
       label: Contact Details
-      description: This field (email address) is not always required. Please write if you don't mind revealing your email address. If we need to contact you privately, we will contact you at the email address.
+      description: Provide your email address if you're comfortable sharing it. We'll use it to contact you if needed.
       placeholder: ex. email@example.com      
-  - type: textarea
-    id: registration-details
-    attributes:
-      label: Registration details (if applicable)
-      description: Write registration details of your event (if applicable).
-      placeholder: Tell us your event registration details! (if applicable).
-      value: "Registration details"
-  - type: textarea
-    id: sponsor-organization
-    attributes:
-      label: Sponsor or Organization
-      description: Sponsor or Organization
-      placeholder: Let us know if there is a sponsor or organization
-      value: "Sponsor or organization"      
-  - type: textarea
-    id: comment
-    attributes:
-      label: Comment field
-      description: Please let us know if there is anything else. For example, the above events are repeated regularly.
+  
   - type: checkboxes
     id: checklist
     attributes:
       label: Checklist
-      description: Please check the following before submitting.
+      description: Please confirm the following before submitting.
       options:
-        - label: This event has a Bioconductor focus or interest to Bioconductor users/developers.
+        - label: This event is relevant to the Bioconductor community.
           required: true
-        - label: The event organizer read and confirmed the [Bioconductor Code of Conduct](http://bioconductor.org/about/code-of-conduct/).
+        - label: The event organizer has read and confirmed the [Bioconductor Code of Conduct](http://bioconductor.org/about/code-of-conduct/).
           required: true
-        - label: The event has the Code of Conduct (CoC) derived from the partner organization or the [Bioconductor Code of Conduct](http://bioconductor.org/about/code-of-conduct/).
+        - label: The event has a Code of Conduct (CoC) derived from the partner organization or the [Bioconductor Code of Conduct](http://bioconductor.org/about/code-of-conduct/).
           required: true
-        - label: The event organizer have the shorter version (summary) of the CoC.
+        - label: The event organizer will provide a summary of the CoC to participants.
           required: true
-          

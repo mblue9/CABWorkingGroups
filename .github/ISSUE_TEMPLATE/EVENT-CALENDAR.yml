@@ -12,10 +12,10 @@ body:
         Submit this form to list your event on the Bioconductor event calendar.
         Please review the following guidelines before submitting:
 
-          1. Events must have a Bioconductor focus to be included in the Bioconductor Core Events Calendar.
-          2. Events with relevance to the Bioconductor community but without a direct focus on Bioconductor tools will be listed in the Bioconductor-Adjacent Events Calendar.
+          1. Events must have a Bioconductor focus to be included in the Bioconductor Events Calendar.
+          2. Events relevant to the Bioconductor community but without a direct focus on Bioconductor tools will be listed in the Other Relevant Events Calendar.
           3. The event organizer should confirm they have read the [Bioconductor Code of Conduct](http://bioconductor.org/about/code-of-conduct/).
-        
+
         Thank you for your submission!
 
   - type: dropdown
@@ -24,8 +24,8 @@ body:
       label: Event Category
       description: Select the category that best describes your event.
       options:
-        - Bioconductor Core Event (direct focus on Bioconductor tools/packages)
-        - Bioconductor-Adjacent Event (relevant to the community but not directly focused on Bioconductor)
+        - Bioconductor Event (direct focus on Bioconductor tools/packages)
+        - Other Relevant Event (relevant to the community but not directly focused on Bioconductor)
     validations:
       required: true
 
@@ -52,8 +52,8 @@ body:
     attributes:
       label: How does this event relate to Bioconductor?
       description: |
-        Clearly describe how this event is related to Bioconductor, especially if you're submitting it as a Bioconductor Core Event. 
-        For Bioconductor-Adjacent Events, explain the relevance to the community.
+        Clearly describe how this event is related to Bioconductor, especially if you're submitting it as a Bioconductor Event. 
+        For Other Relevant Events, explain the relevance to the community.
       placeholder: Describe the relevance of your event to Bioconductor.
     validations:
       required: true
@@ -79,7 +79,7 @@ body:
   - type: dropdown
     id: repeating-or-oneoff
     attributes:
-      label: Repeating or one-off events?
+      label: Repeating or one-off event?
       description: Select whether the event is repeating or a one-off occurrence.
       options:
         - Repeating
@@ -88,12 +88,39 @@ body:
       required: true
 
   - type: textarea
+    id: repeating-details
+    attributes:
+      label: Repeating Event Schedule (if applicable)
+      description: If your event is repeating, please specify the schedule details (e.g., "Repeats every Monday at 3:00 PM", "Monthly on the 15th", etc.).
+      placeholder: Provide details about the event's repeating schedule.
+    validations:
+      required: false
+
+  - type: textarea
+    id: repeating-time
+    attributes:
+      label: Repeating Event Time (if applicable)
+      description: Specify the time for each occurrence of the repeating event.
+      placeholder: e.g., 3:00 PM - 4:00 PM
+    validations:
+      required: false
+
+  - type: textarea
+    id: oneoff-date-time
+    attributes:
+      label: One-off Event Date and Time (if applicable)
+      description: If your event is a one-off, specify the date and time.
+      placeholder: e.g., April 15th, 3:00 PM - 4:00 PM
+    validations:
+      required: false
+
+  - type: input
     id: contact
     attributes:
       label: Contact Details
       description: Provide your email address if you're comfortable sharing it. We'll use it to contact you if needed.
       placeholder: ex. email@example.com      
-  
+
   - type: checkboxes
     id: checklist
     attributes:
